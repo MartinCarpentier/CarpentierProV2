@@ -1,3 +1,45 @@
-<div class="container">
-  <h3>This site will contain the carpentier pro v1 hash tool</h3>
+<div class="container" style="margin-top: 3em; margin-bottom: 3em" (window:resize)="onResize($event)">
+    <div class="row">
+        <h2 class="col-12">Hashmaker</h2>
+    </div>
+    <div class="row">
+        <p class="col-12">Select a hashing algorithm</p>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-5 form-group">
+            <select class="custom-select">
+                <option value="sha1">Sha1</option>
+                <option value="sha256">Sha256</option>
+                <option value="sha512">Sha512</option>
+                <option value="md5">MD5</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-5">
+            <div class="card border-primary mb-3" style="height: 270px">
+                <div class="card-header">Enter text to hash</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <textarea class="form-control" style="height: 130px" id="exampleTextarea" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary">Hash</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!smallerThanMd" class="col-md-2 center">
+            <img [src]="arrow" class="center-image" alt="Martin Carpentier" />
+        </div>
+        <div *ngIf="smallerThanMd" class="col-2 center">
+            <img [src]="arrow" class="center-image" style="transform: rotate(90deg);" alt="Martin Carpentier" />
+        </div>
+        <div class="col-12 col-md-5">
+            <div class="card border-primary mb-3" style="height: 270px">
+                <div class="card-header">Result</div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
