@@ -1,4 +1,5 @@
 <div class="container" style="margin-top: 3em; margin-bottom: 3em" (window:resize)="onResize($event)">
+
     <div class="row">
         <h2 class="col-12">Hashmaker</h2>
     </div>
@@ -7,12 +8,18 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-5 form-group">
-            <select class="custom-select">
-                <option value="sha1">Sha1</option>
-                <option value="sha256">Sha256</option>
-                <option value="sha512">Sha512</option>
-                <option value="md5">MD5</option>
+            <label for="algorithm">Hashing algorithm</label>
+            <select class="form-control" #selectedAlgorithm id="algorithm" (change)="onChange(selectedAlgorithm.value)">
+                <option *ngFor="let algo of algorithms" [value]="algo">{{algo}}</option>
             </select>
+        </div>
+    </div>
+    <div class="row" *ngIf="showKey">
+        <div class="col-12 col-md-5 form-group">
+            <label>Write a key for the HMAC hash</label>
+            <div class="form-group">
+                <textarea class="form-control" (input)="hmacKey = $event.target.value"></textarea>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -21,9 +28,9 @@
                 <div class="card-header">Enter text to hash</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <textarea class="form-control" style="height: 130px" id="exampleTextarea" rows="3"></textarea>
+                        <textarea class="form-control" #textToHash style="height: 130px" id="exampleTextarea" rows="3"></textarea>
                     </div>
-                    <button type="button" class="btn btn-primary">Hash</button>
+                    <button (click)="hash(textToHash.value, selectedAlgorithm.value)" class="btn btn-primary">Hash</button>
                 </div>
             </div>
         </div>
@@ -37,7 +44,7 @@
             <div class="card border-primary mb-3" style="height: 270px">
                 <div class="card-header">Result</div>
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">{{hashedText}}</p>
                 </div>
             </div>
         </div>
