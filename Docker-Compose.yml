@@ -7,11 +7,11 @@ networks:
     external: false
 
     services:
-        batlplatform:
-            image: batlsoft/batl-platform:latest
+        carpentierpro:
+            image: martincarp/carpentierprov2:latest
             labels:
-                - traefik.backend=danskebank
-                - traefik.frontend.rule=Host:danskebank.batl.biz
+                - traefik.backend=carpentier.pro
+                - traefik.frontend.rule=Host:carpentier.pro
                 - traefik.docker.network=proxy
                 - traefik.enable=true
             ports:
