@@ -2,21 +2,19 @@ version: '3'
 
 networks:
     proxy:
-    external: true
+        external: true
     internal:
-    external: false
+        external: false
 
-    services:
-        carpentierpro:
-            image: martincarp/carpentierprov2:latest
-            labels:
-                - traefik.backend=carpentier.pro
-                - traefik.frontend.rule=Host:carpentier.pro
-                - traefik.docker.network=proxy
-                - traefik.enable=true
-            ports:
-                - 8080:8080
-            networks:
-                - internal
-                - proxy
-            restart: always
+services:
+    batlplatform:
+        image: martincarp/carpentierprov2:latest
+        labels:
+            - traefik.backend=carpentierpro
+            - traefik.frontend.rule=Host:carpentier.pro
+            - traefik.docker.network=proxy
+            - traefik.enable=true
+        networks:
+            - internal
+            - proxy
+        restart: always

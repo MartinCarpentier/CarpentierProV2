@@ -1,14 +1,8 @@
-### STAGE 1: Setup ###
+# Create image based on the official Node 6 image from dockerhub
+FROM nginx:stable-alpine
 
-FROM nginx:1.13.11-alpine
+COPY dist/ /usr/share/nginx/html
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
-## Copy our default nginx config
-COPY default.conf /etc/nginx/conf.d/
-
-## Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
-
-## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
-COPY dist /usr/share/nginx/html
-
-CMD ["nginx", "-g", "daemon off;"]
+# Expose the port the app runs in
+EXPOSE 80
