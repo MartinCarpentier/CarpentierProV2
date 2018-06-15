@@ -7,7 +7,7 @@ networks:
         external: false
 
 services:
-    batlplatform:
+    carpentierpro:
         image: martincarp/carpentierprov2:latest
         labels:
             - traefik.backend=carpentierpro
