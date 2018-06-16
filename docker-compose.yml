@@ -9,12 +9,14 @@ networks:
 services:
     carpentierpro:
         image: martincarp/carpentierprov2:latest
+        ports:
+          - "5230:80"
         labels:
-            - traefik.backend=carpentierpro
-            - traefik.frontend.rule=Host:carpentier.pro
-            - traefik.docker.network=proxy
-            - traefik.enable=true
+          - traefik.backend=carpentierpro
+          - traefik.frontend.rule=Host:carpentier.pro
+          - traefik.docker.network=proxy
+          - traefik.enable=true
         networks:
-            - internal
-            - proxy
+          - internal
+          - proxy
         restart: always
