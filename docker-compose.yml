@@ -9,8 +9,6 @@ networks:
 services:
     carpentierpro:
         image: martincarp/carpentierprov2:latest
-        ports:
-          - "5230:80"
         labels:
           - traefik.backend=carpentierpro
           - traefik.frontend.rule=Host:www.carpentier.pro, carpentier.pro

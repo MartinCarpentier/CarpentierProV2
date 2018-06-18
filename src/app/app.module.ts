@@ -7,6 +7,7 @@ import { HashtesterComponent } from './hashtester/hashtester.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutes } from './app.routing';
 import { ToolsComponent } from './tools/tools.component';
+import { EncryptiontoolComponent } from './encryptiontool/encryptiontool.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ToolsComponent } from './tools/tools.component';
     AppComponent,
     HashtesterComponent,
     HomeComponent,
-    ToolsComponent
+    ToolsComponent,
+    EncryptiontoolComponent
   ],
   imports: [
     BrowserModule,

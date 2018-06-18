@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HashtesterComponent } from './hashtester/hashtester.component';
 import { HomeComponent } from './home/home.component';
+import { EncryptiontoolComponent } from './encryptiontool/encryptiontool.component';
 
 
 export const AppRoutes: Routes = [
@@ -14,11 +15,15 @@ export const AppRoutes: Routes = [
       pathMatch: 'full',
   },
   {
-      path: 'hashtester',
+      path: 'hashmaker',
       component: HashtesterComponent
   },
   {
       path: 'home',
       component: HomeComponent
+  },
+  {
+      path: 'encryptiontool',
+      component: EncryptiontoolComponent
   },
 ]
